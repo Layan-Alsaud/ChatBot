@@ -14,3 +14,7 @@ python-multipart
 streamlit
 langchain-text-splitters
 langchain-classic
+azure-identity
+azure-keyvault-secrets
+azure-storage-blob
+
