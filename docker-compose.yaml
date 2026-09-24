@@ -12,15 +12,12 @@ services:
     restart: unless-stopped
     env_file:
       - .env
-    environment:
-      CHROMA_HOST: chromadb
-      CHROMA_PORT: 8000
     ports:
       - "5000:5000"
     depends_on:
-      - chromadb:
-           condition: service_started
-     healthcheck:
+      chromadb:
+        condition: service_started
+    healthcheck:
       test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:5000/openapi.json > /dev/null || exit 1"]
       interval: 10s
       timeout: 5s
@@ -38,8 +35,8 @@ services:
     ports:
       - "8501:8501"
     depends_on:
-      - backend:
-          condition: service_healthy
+      backend:
+        condition: service_healthy
 
 volumes:
   chromadb_data:
