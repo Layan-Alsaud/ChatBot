@@ -1,0 +1,10 @@
+.env
+ssh-keys/
+sshKeys
+sshKeys.pub
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+*.tfvars
+__pycache__/
+*.pyc
